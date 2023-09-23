@@ -13,15 +13,15 @@ PROBLEM STATEMENT
 
 # Defining the variables
 
-N = 101             # Number of points
+N = 1000             # Number of points
 xmin,xmax = 0,1     # Domain limits
  
 Lx = xmax - xmin    # Domain Size
 dx = Lx/(N-1)       # Mesh width
 x = np.linspace(xmin,xmax,N) # Mesh Points
 
-dt = 0.01          # time step 
-T = 10              # Total time
+dt = 0.001          # time step 
+T = 1              # Total time
 Nt = int(T/dt)      # no of time iterations
 
 a = 1               # Constant
@@ -42,11 +42,16 @@ for n in range(0,Nt):
     Uex = np.sin(2 * np.pi * (x - a * T))
 
 
-#Ploting 
-plt.plot(x,U[n+1,:])
-plt.axis([xmin, xmax, 0, 1.4])
-plt.title('t='+str(round(dt*(n+1),3)),fontsize=16)
-plt.xlabel('x',fontsize=18)
-plt.ylabel('u',fontsize=18)
+    #Ploting 
+    if (n==0): fig, ax = plt.subplots(figsize=(5.5,4))
+    plt.clf()
+    plt.plot(x,U[n+1,:])
+    plt.axis([xmin, xmax, 0, 1.4])
+    plt.title('t='+str(round(dt*(n+1),3)),fontsize=16)
+    plt.xlabel('x',fontsize=18)
+    plt.ylabel('u',fontsize=18)
+  
+    plt.draw()
+    plt.pause(0.001)
 
 plt.show()

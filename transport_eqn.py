@@ -42,17 +42,11 @@ for n in range(0,Nt):
     Uex = np.sin(2 * np.pi * (x - a * T))
 
 
-# Ploting
-plt.clf()
+#Ploting 
 plt.plot(x,U[n+1,:])
-plt.scatter(x,Uex, marker='o', facecolors='white', color='k')
-plt.gca().legend(('Numerical Solution','Exact solution'))
 plt.axis([xmin, xmax, 0, 1.4])
 plt.title('t='+str(round(dt*(n+1),3)),fontsize=16)
 plt.xlabel('x',fontsize=18)
 plt.ylabel('u',fontsize=18)
-plt.tight_layout()
-plt.draw()
-plt.pause(0.001)
 
 plt.show()

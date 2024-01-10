@@ -41,16 +41,15 @@ for n in range(0,Nt):
 # Computing exact solution
     Uex = np.sin(2 * np.pi * (x - a * T))
 
-
     #Ploting 
     if (n==0): fig, ax = plt.subplots(figsize=(5.5,4))
     plt.clf()
     plt.plot(x,U[n+1,:])
-    plt.axis([xmin, xmax, 0, 1.4])
+    plt.axis([xmin, xmax, -1.4, 1.4])
     plt.title('t='+str(round(dt*(n+1),3)),fontsize=16)
     plt.xlabel('x',fontsize=18)
     plt.ylabel('u',fontsize=18)
-  
+    plt.grid(True)
     plt.draw()
     plt.pause(0.001)
 

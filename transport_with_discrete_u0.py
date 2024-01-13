@@ -9,10 +9,7 @@ PROBLEM STATEMENT
     Domain : (-2,2)
 '''
 
-##### FOR PANDAS #####
-mydata = []
-mycol = ["U[n,j]","U_plus_half","u_minus_half","second_term","U[n+1,j]"]
-#### END #######
+
 
 # Defining the variables
 N = 500                   # Number of points
@@ -37,20 +34,16 @@ for i in range(len(x)):
 
 
 def flux(n,i):
-    return  U[n,i]**2/2
+    return  U[n,i]*2
 
 def func(n,i,j):
     return (flux(n,i)+flux(n,j))/2 - (dx/dt)*(U[n,j]-U[n,i])/2
-
-# def Uxxx(n,i):
-#     return U[n,i] - 3*U[n,i-1] + 3*U[n,i-2] - U[n,i-3]
 
 
 # Solving using numerical analysis
 for n in range(0,Nt):
     for j in range(1,N-1):
         # First calculating the numerical flux
-        # third_term = (dt/(dx**3))*Uxxx(n,j)
         # Basic Formula to calculate U^n_j+1
         U[n+1,j] = U[n,j] - (dt/dx)*(func(n,j,j+1)- func(n,j-1,j)) 
 

@@ -8,7 +8,7 @@ u_0 = 1 for x<0 and 0 for x>=0
 """
 
 #Declaring the variables
-N = 1000                        # No of cells
+N = 500                        # No of cells
 xmin,xmax = -2,2                # Limits
 L = xmax - xmin                 # Grid width
 dx = L/N                        # Cell width

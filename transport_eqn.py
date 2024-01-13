@@ -39,7 +39,7 @@ for n in range(0,Nt):
     U[n+1,0] = U[n+1,N-1]
 
 # Computing exact solution
-    Uex = np.sin(2 * np.pi * (x - a * T))
+   
 
     #Ploting 
     if (n==0): fig, ax = plt.subplots(figsize=(5.5,4))

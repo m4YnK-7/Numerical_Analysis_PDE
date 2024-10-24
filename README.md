@@ -9,7 +9,6 @@
 
 ### Dependencies: -
 1. Python
-2. C++
 2. matplotlib
 3. NumPy
 4. SciP
@@ -27,14 +26,6 @@ pip install -r requirements.txt
 - [Transport_Burgers](#transport_burgers-c-code)
 - [Kuramoto](#kuramoto-python-code)
 - [PINN Kuramoto](#pinn-kuramoto)
-
-## Transport_Burgers C++ Code
-**FV_sim.h** and **FV_sim.cpp** constitute A CUSTOM NUMERICAL ANALYSIS LIBRARY that contains _all the functions and scheme implementations._ **simulate.cpp** contains all simulation parameters and the flux definition (f(u)).
-
-```bash
-cd cpp_Transport_Burgers
-g++ simulate.cpp FV_sim.cpp -o simulate && ./simulate
-```
 
 ## Kuramoto Python Code
 In their *respective directory*, **scheme.py** is the module that contains _the respective numerical analysis scheme implementation._ **functions.py** is the module that contains _functionality functions._ **config.py** contains all simulation parameters and the flux definition (f(u)). Set problem equation and simulation parameters in the **config.py** and **kuramoto_main.py** file

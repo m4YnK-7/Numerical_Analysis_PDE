@@ -11,7 +11,7 @@ Domain (0,2)
 #Declaring the variables
 N = 1000                        # Number of points
 
-xmin,xmax = 0,np.pi             # Domain limits
+xmin,xmax = 0,1            # Domain limits
 L = xmax - xmin                 # Domain Size
 dx = L/N                        # Mesh width
 x = np.linspace(xmin,xmax,N)    # Mesh Points
@@ -25,22 +25,23 @@ U = np.zeros((Nt+1,N))
 U[0,:] = np.sin(x)
 
 # A function to calculate numerical flux 
-# This is to avoid data overflow error 
-def Num_flux(i,j):
-    return (U[n,i]**2 + U[n,j]**2)/4 - (dx/dt)*(U[n,j]-U[n,i])/2
+# This is to avoid data overflow error
+def burger_eqn(): 
+    def Num_flux(i,j):
+        return (U[n,i]**2 + U[n,j]**2)/4 - (dx/dt)*(U[n,j]-U[n,i])/2
 
-# Numerical Analysis
-for n in range(0,Nt):
-    for j in range(1,N-1):
-        # First calculating the numerical flux
-        F_nj1 = Num_flux(j,j+1)
-        F_nj2 = Num_flux(j-1,j)
+    # Numerical Analysis
+    for n in range(0,Nt):
+        for j in range(1,N-1):
+            # First calculating the numerical flux
+            F_nj1 = Num_flux(j,j+1)
+            F_nj2 = Num_flux(j-1,j)
 
-        # Basic Formula to calculate U^n_j+1
-        U[n+1,j] = U[n,j] - (dt/dx)*(F_nj1 - F_nj2)
+            # Basic Formula to calculate U^n_j+1
+            U[n+1,j] = U[n,j] - (dt/dx)*(F_nj1 - F_nj2)
 
-    # Assigning U^n+1_0 as loop starts from 1
-    U[n+1,0] = U[n+1,N-1]
+        # Assigning U^n+1_0 as loop starts from 1
+        U[n+1,0] = U[n+1,N-1]
 
     # Plotting
     if(n == 0): fig,ax = plt.subplots(figsize = (5.5,4))

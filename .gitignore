@@ -1,4 +1,3 @@
-*all_data.txt
 *.exe
 *tempCodeRunnerFile.*
 *uex.txt
@@ -7,6 +6,5 @@
 *Transport.cpp
 *.vscode/
 *__pycache__
-*python_Kuramoto/*/steps
-*PINN_Kuramoto/*/steps
+*Kuramoto_PINN/steps
 *.png
